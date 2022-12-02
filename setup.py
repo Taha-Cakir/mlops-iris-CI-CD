@@ -7,10 +7,9 @@ here = os.path.abspath(os.path.dirname(__file__))
 with open(os.path.join(here, "pipelines", "__version__.py")) as f:
     exec(f.read(), about)
 
-"""
+
 with open("README.md", "r") as f:
     readme = f.read()
-"""
 
 
 required_packages = ["sagemaker==2.93.0"]
