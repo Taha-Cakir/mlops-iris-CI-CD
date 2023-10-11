@@ -1,16 +1,4 @@
-# Copyright 2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
-#
-# Licensed under the Apache License, Version 2.0 (the "License"). You
-# may not use this file except in compliance with the License. A copy of
-# the License is located at
-#
-#     http://aws.amazon.com/apache2.0/
-#
-# or in the "license" file accompanying this file. This file is
-# distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
-# ANY KIND, either express or implied. See the License for the specific
-# language governing permissions and limitations under the License.
-"""A CLI to create or update and run pipelines."""
+
 from __future__ import absolute_import
 
 import argparse
@@ -22,10 +10,6 @@ from pipelines._utils import get_pipeline_driver, convert_struct, get_pipeline_c
 
 
 def main():  # pragma: no cover
-    """The main harness that creates or updates and runs the pipeline.
-
-    Creates or updates the pipeline and runs it.
-    """
     parser = argparse.ArgumentParser(
         "Creates or updates and runs the pipeline for the pipeline script."
     )
@@ -63,8 +47,7 @@ def main():  # pragma: no cover
         "-tags",
         "--tags",
         dest="tags",
-        default=None,
-        help="""List of dict strings of '[{"Key": "string", "Value": "string"}, ..]'""",
+        default=None
     )
     args = parser.parse_args()
 
