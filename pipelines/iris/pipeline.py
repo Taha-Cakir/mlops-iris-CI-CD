@@ -1,13 +1,4 @@
-"""Example workflow pipeline script for Iris pipeline.
 
-                                               . -ModelStep
-                                              .
-    Process-> Train -> Evaluate -> Condition .
-                                              .
-                                               . -(stop)
-
-Implements a get_pipeline(**kwargs) method.
-"""
 import os
 
 import boto3
@@ -89,15 +80,6 @@ def get_session(region, default_bucket):
     )
 
 def get_pipeline_session(region, default_bucket):
-    """Gets the pipeline session based on the region.
-
-    Args:
-        region: the aws region to start the session
-        default_bucket: the bucket to use for storing the artifacts
-
-    Returns:
-        PipelineSession instance
-    """
 
     boto_session = boto3.Session(region_name=region)
     sagemaker_client = boto_session.client("sagemaker")
@@ -132,16 +114,7 @@ def get_pipeline(
     processing_instance_type="ml.t3.medium",
     training_instance_type="ml.m5.xlarge"
 ):
-    """Gets a SageMaker ML Pipeline instance working with on Iris data.
-
-    Args:
-        region: AWS region to create and run the pipeline.
-        role: IAM role to create and run steps and pipeline.
-        default_bucket: the bucket to use for storing the artifacts
-
-    Returns:
-        an instance of a pipeline
-    """
+    
     sagemaker_session = get_session(region, default_bucket)
     if role is None:
         role = sagemaker.session.get_execution_role(sagemaker_session)
