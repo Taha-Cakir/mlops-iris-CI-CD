@@ -1,4 +1,3 @@
-"""Feature engineers the abalone dataset."""
 import argparse
 import logging
 import os
@@ -74,18 +73,10 @@ if __name__ == "__main__":
 
     logger.debug("Defining transformers.")
     numeric_features = list(feature_columns_names)
-    #numeric_features.remove("sex")
     numeric_transformer = Pipeline(
         steps=[("imputer", SimpleImputer(strategy="median")), ("scaler", StandardScaler())]
     )
-    
-    #categorical_features = ["sex"]
-    #categorical_transformer = Pipeline(
-    #    steps=[
-    #        ("imputer", SimpleImputer(strategy="constant", fill_value="missing")),
-     #       ("onehot", OneHotEncoder(handle_unknown="ignore")),
-     #   ]
-    #)
+
 
     preprocess = ColumnTransformer(
         transformers=[
